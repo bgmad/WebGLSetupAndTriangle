@@ -33,6 +33,16 @@ const InitDemo = () => {
     // Set clearing operations
     gl.clearColor(0.75, 0.85, 0.8, 1.0); // specifies the color values used when clearing color buffers
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+    //
+    // Create shaders
+    //
+    const vertexShader = gl.createShader(gl.VERTEX_SHADER);
+    const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+
+    // Set shader code
+    gl.shaderSource(vertexShader, vertexShaderText);
+    gl.shaderSource(fragmentShader, fragmentShaderText);
 }
 
 InitDemo();

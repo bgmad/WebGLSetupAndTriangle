@@ -43,6 +43,20 @@ const InitDemo = () => {
     // Set shader code
     gl.shaderSource(vertexShader, vertexShaderText);
     gl.shaderSource(fragmentShader, fragmentShaderText);
+
+    // Compile shaders
+    gl.compileShader(vertexShader);
+    // Compile and check vertex shader for errors
+    if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
+        console.error('ERROR compiling vertex shader!', gl.getShaderInfoLog(vertexShader));
+        return;
+    }
+    // Compile and check fragment shader for errors
+    gl.compileShader(fragmentShader);
+    if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
+        console.error('ERROR compiling fragment shader!', gl.getShaderInfoLog(fragmentShader));
+        return;
+    }
 }
 
 InitDemo();

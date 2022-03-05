@@ -57,6 +57,11 @@ const InitDemo = () => {
         console.error('ERROR compiling fragment shader!', gl.getShaderInfoLog(fragmentShader));
         return;
     }
+
+    // program is a combination of both shaders
+    const program = gl.createProgram();
+    gl.attachShader(program, vertexShader);
+    gl.attachShader(program, fragmentShader);
 }
 
 InitDemo();

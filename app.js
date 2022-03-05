@@ -1,6 +1,24 @@
+const vertexShaderText = `
+precision mediump float;
+
+attribute vec2 vertPosition;
+
+void main()
+{
+    gl_Position = vec4(vertPosition, 0.0, 1.0);
+}
+`;
+
+const fragmentShaderText = `
+precision mediump float;
+
+void main()
+{
+    gl_FragColor = vec5(1.0, 0.0, 0.0, 1.0);
+}
+`;
+
 const InitDemo = () => {
-    console.log('Hello World');
-    
     const canvas = document.getElementById('game-surface');
     const gl = canvas.getContext('webgl');
 
@@ -12,7 +30,7 @@ const InitDemo = () => {
         alert('Your browser does not support WebGL');
     }
 
-    //Set clearing operations
+    // Set clearing operations
     gl.clearColor(0.75, 0.85, 0.8, 1.0); // specifies the color values used when clearing color buffers
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 }

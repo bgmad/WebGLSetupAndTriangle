@@ -104,6 +104,14 @@ const InitDemo = () => {
     );
 
     gl.enableVertexAttribArray(positionAttribLocation);
+
+    //
+    // Main render loop
+    //
+    gl.useProgram(program);
+    // renders primitives from array data
+    // supposedly this uses the last bound array buffer (line 92)
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
 }
 
 InitDemo();

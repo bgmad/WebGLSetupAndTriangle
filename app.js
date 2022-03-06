@@ -76,6 +76,22 @@ const InitDemo = () => {
         return;
     }
 
+    //
+    // Create buffer
+    //
+    const triangleVertices = 
+    [ // X, Y
+        0.0, 0.5,
+        -0.5, -0.5,
+        0.5, -0.5
+    ];
+
+    // Create the buffer object
+    const triangleVertexBufferObject = gl.createBuffer();
+    // Bind gl.ARRAY_BUFFER to that buffer object
+    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexBufferObject);
+    // This function has many different options for parameters. I think correlates to (target, ArrayBuffer(View?) srcData, usage).
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(triangleVertices), gl.STATIC_DRAW);
 }
 
 InitDemo();

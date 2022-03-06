@@ -102,6 +102,8 @@ const InitDemo = () => {
         2 * Float32Array.BYTES_PER_ELEMENT, // Size of an individual vertex
         0 // Offset from the beginning of a single vertex to this attribute
     );
+
+    gl.enableVertexAttribArray(positionAttribLocation);
 }
 
 InitDemo();

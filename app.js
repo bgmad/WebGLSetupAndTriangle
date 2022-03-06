@@ -69,6 +69,13 @@ const InitDemo = () => {
         console.error('ERROR linking program!', gl.getProgramInfoLog(program));
         return;
     }
+    // Make sure everything is good to go in the current WebGL state
+    gl.validateProgram(program);
+    if (!gl.getProgramParameter(program, gl.VALIDATE_STATUS)) {
+        console.error('ERROR validating program!', gl.getProgramInfoLog(program));
+        return;
+    }
+
 }
 
 InitDemo();

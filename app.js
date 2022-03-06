@@ -62,6 +62,13 @@ const InitDemo = () => {
     const program = gl.createProgram();
     gl.attachShader(program, vertexShader);
     gl.attachShader(program, fragmentShader);
+    // "completing the process of preparing the GPU code for the program's fragment and vertex shaders."
+    gl.linkProgram(program);
+    // Catch any errors with linking Program
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+        console.error('ERROR linking program!', gl.getProgramInfoLog(program));
+        return;
+    }
 }
 
 InitDemo();
